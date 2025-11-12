@@ -11,7 +11,7 @@ import SwiftUI
 
 // MARK: - Main Game View
 
-struct LinkFlowGameView: View {
+struct SequenceGameView: View {
     @StateObject private var viewModel = GameViewModel()
     
     var body: some View {
@@ -502,5 +502,5 @@ struct CompletionOverlay: View {
 // MARK: - Preview
 
 #Preview {
-    LinkFlowGameView()
+    SequenceGameView()
 }
