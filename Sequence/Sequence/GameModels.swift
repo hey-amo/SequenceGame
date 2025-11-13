@@ -8,8 +8,6 @@
 import Foundation
 import SwiftUI
 
-// MARK: - Core Data Models
-
 /// Represents a position on the game grid
 struct GridPosition: Hashable, Equatable, Codable {
     let row: Int
@@ -274,7 +272,7 @@ class LevelManager: ObservableObject {
     /// Load built-in levels
     private func loadDefaultLevels() {
         levels = [
-            // Level 1: Simple 3-node tutorial
+            // Level 1
             Level(
                 name: "Tutorial",
                 gridSize: 4,
@@ -285,7 +283,7 @@ class LevelManager: ObservableObject {
                 ]
             ),
             
-            // Level 2: Based on your first image
+            // Level 2
             Level(
                 name: "Classic",
                 gridSize: 6,
@@ -301,7 +299,7 @@ class LevelManager: ObservableObject {
                 ]
             ),
             
-            // Level 3: Zigzag pattern
+            // Level 3
             Level(
                 name: "Zigzag",
                 gridSize: 5,
@@ -315,7 +313,7 @@ class LevelManager: ObservableObject {
                 ]
             ),
             
-            // Level 4: Corner challenge
+            // Level 4
             Level(
                 name: "Corners",
                 gridSize: 6,
