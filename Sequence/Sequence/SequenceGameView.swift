@@ -34,6 +34,12 @@ struct SequenceGameView: View {
                 Spacer()
                 
                 HStack(spacing: 15) {
+                    Button("✦") {
+                        print("Solve")
+                    }
+                }
+                
+                HStack(spacing: 15) {
                     Button("←") {
                         viewModel.previousLevel()
                     }
@@ -170,6 +176,10 @@ class GameViewModel: ObservableObject {
     
     func colorForNode(_ number: Int) -> Color {
         gameState.level.colorForNode(number)
+    }
+    
+    func solveLevel() {
+        // solve the game level
     }
     
     // MARK: - Private Methods
