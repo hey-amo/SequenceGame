@@ -8,29 +8,52 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @State private var showResetAlert = false
+
     var body: some View {
-        Form {
-            Section {
-                Text("Sounds")
-            }
-            Section {
-                Text("Visuals")
-            }
-            Section {
-                Text("Reset")
-                Button("Reset stats") {
-                    // Do something
+        NavigationStack {
+            Form {
+                Section("Sound") {
+                    Toggle("Sound effects", isOn: .constant(true))
+                    Toggle("Background music", isOn: .constant(true))
+                }
+                Section("Display") {
+                    Toggle("Dark mode", isOn: .constant(true))
+                }
+                Section("Game") {
+                    Button("Reset game data", role: .destructive) {
+                        // Do something
+                        showResetAlert = true
+                    }
                 }
             }
-            Section {
-                Text("About")
-                Text("Version: 1.0. Nov 2025")
-                Text("Author: Amo")
+            .navigationTitle("Settings")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done") {
+                        print("Pressed done")
+                    }
+                }
+            }
+            .alert(String(localized: "Confirm Reset Game Data?"), isPresented: $showResetAlert) {
+                Button(String(localized: "Cancel"), role: .cancel) { }
+                Button(String(localized: "Yes"), role: .destructive) {
+                    resetGameData()
+                }
+            } message: {
+                Text(String(localized: "Are you sure?"))
             }
         }
     }
+
+    private func resetGameData() {
+        print("Game data reset")
+    }
 }
+
 
 #Preview {
     SettingsView()
 }
+
